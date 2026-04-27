@@ -1,26 +1,296 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  --font-heading: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  /* DaNo Bygg brand tokens */
+  --dano-primary: #111111;
+  --dano-primary-light: #1a1a1a;
+  --dano-accent: #c4a882;
+  --dano-accent-light: #d4bc9a;
+  --dano-accent-muted: #ede6db;
+  --dano-bg: #fafafa;
+  --dano-bg-warm: #f5f3f0;
+  --dano-text: #111111;
+  --dano-text-muted: #6b6b6b;
+  --dano-text-light: #999999;
+  --dano-dark: #0a0a0a;
+  --dano-dark-card: #151515;
+  --dano-border: #e5e5e5;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .dano-container {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 4vw, 1.25rem);
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    padding-bottom: calc(56px + env(safe-area-inset-bottom));
+  }
+
+  section:not(#hero) {
+    padding-block: 4rem !important;
+  }
+
+  #hero {
+    min-height: 100svh !important;
+  }
+
+  .dano-header-inner {
+    height: 60px !important;
+    padding-inline: 1rem !important;
+  }
+
+  .dano-logo {
+    height: 38px !important;
+    width: auto !important;
+  }
+
+  .dano-mobile-menu {
+    padding: calc(4.5rem + env(safe-area-inset-top)) 1rem calc(2rem + env(safe-area-inset-bottom)) !important;
+    justify-content: flex-start !important;
+  }
+
+  .dano-hero-content {
+    padding: 5.5rem 1rem 5rem !important;
+  }
+
+  .dano-hero-title,
+  .dano-section-title {
+    letter-spacing: 0 !important;
+    text-wrap: balance;
+  }
+
+  .dano-hero-title {
+    font-size: clamp(2.2rem, 12vw, 3.4rem) !important;
+  }
+
+  .dano-hero-actions {
+    gap: 0.75rem !important;
+  }
+
+  .dano-hero-actions > button,
+  .dano-instagram-link {
+    justify-content: center;
+    width: 100% !important;
+  }
+
+  .dano-section-copy,
+  .dano-body-copy {
+    font-size: 0.975rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .dano-section-header {
+    margin-bottom: 2.25rem !important;
+  }
+
+  .dano-services-grid,
+  .dano-about-grid,
+  .dano-why-grid,
+  .dano-projects-grid,
+  .dano-contact-grid,
+  .dano-footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .dano-service-feature,
+  .dano-project-card {
+    grid-column: span 1 !important;
+  }
+
+  .dano-service-feature {
+    min-height: 340px !important;
+  }
+
+  .dano-service-feature-content,
+  .dano-service-card {
+    padding: 1.25rem !important;
+  }
+
+  .dano-about-grid {
+    gap: 2rem !important;
+  }
+
+  .dano-stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .dano-stat-card {
+    padding: 1rem !important;
+  }
+
+  .dano-parallax {
+    height: 420px !important;
+  }
+
+  .dano-parallax-content {
+    padding-inline: 1rem !important;
+  }
+
+  .dano-why-card {
+    padding: 1.5rem 0 !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--dano-border);
+  }
+
+  .dano-why-card:last-child {
+    border-bottom: 0;
+  }
+
+  .dano-projects-headline {
+    width: 100%;
+  }
+
+  .dano-project-card {
+    aspect-ratio: 4 / 3 !important;
+  }
+
+  .dano-project-overlay {
+    background-color: rgba(0, 0, 0, 0.48) !important;
+  }
+
+  .dano-project-title {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  .dano-contact-link {
+    align-items: flex-start !important;
+    overflow-wrap: anywhere;
+  }
+
+  .dano-map {
+    aspect-ratio: 1 / 1 !important;
+    min-height: 280px;
+  }
+
+  .dano-mobile-cta {
+    padding-bottom: env(safe-area-inset-bottom);
+    background: #111111;
+  }
+
+  .dano-mobile-cta a,
+  .dano-mobile-cta button {
+    min-width: 0;
+    padding: 14px 10px !important;
+    font-size: 0.875rem !important;
+  }
+
+  .dano-footer-bottom {
+    align-items: flex-start !important;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
