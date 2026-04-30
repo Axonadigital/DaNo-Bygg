@@ -26,7 +26,7 @@ export function MobileCta() {
 
   return (
     <div
-      className="dano-mobile-cta flex md:hidden"
+      className="dano-mobile-cta md:hidden"
       style={{
         position: "fixed",
         bottom: 0,

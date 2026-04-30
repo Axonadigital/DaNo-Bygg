@@ -125,6 +125,12 @@
   }
 }
 
+@media (min-width: 768px) {
+  .dano-mobile-cta {
+    display: none !important;
+  }
+}
+
 @media (max-width: 767px) {
   body {
     padding-bottom: calc(56px + env(safe-area-inset-bottom));
