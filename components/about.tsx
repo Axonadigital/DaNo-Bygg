@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 const stats = [
@@ -19,50 +18,19 @@ export function About() {
       }}
     >
       <div
-        className="dano-about-grid md:grid-cols-[55fr_45fr]"
         style={{
           maxWidth: "1280px",
           margin: "0 auto",
           padding: "0 1.25rem",
-          display: "grid",
-          gridTemplateColumns: "1fr",
-          gap: "3rem",
-          alignItems: "center",
         }}
       >
-        {/* Image column */}
+        {/* Text */}
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          style={{
-            position: "relative",
-            aspectRatio: "4/3",
-            overflow: "hidden",
-            borderRadius: "4px",
-            backgroundColor: "var(--dano-accent-muted)",
-          }}
-          className="order-2 md:order-1"
-        >
-          <Image
-            src="/images/om-oss.jpg"
-            alt="Byggmästare på byggplats i Jämtland"
-            fill
-            sizes="(max-width: 768px) 100vw, 55vw"
-            style={{ objectFit: "cover" }}
-            quality={80}
-          />
-        </motion.div>
-
-        {/* Text column */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-          style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
-          className="order-1 md:order-2"
+          style={{ display: "flex", flexDirection: "column", gap: "1.5rem", maxWidth: "720px" }}
         >
           <div>
             <p

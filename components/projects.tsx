@@ -7,39 +7,39 @@ import { InstagramIcon } from "@/components/icons/instagram";
 
 const projects = [
   {
-    src: "/images/projekt/projekt-1.jpg",
-    title: "Nybyggnation villa",
-    alt: "Nybyggnation av villa i Sverige",
+    src: "/images/projekt/Matbord i ek 1.jpg",
+    title: "Matbord i ek",
+    alt: "Snickeri — matbord i massiv ek",
     span: 2,
   },
   {
-    src: "/images/projekt/projekt-2.jpg",
-    title: "Badrumsrenovering",
-    alt: "Badrumsrenovering med modern skandinavisk design",
+    src: "/images/projekt/Takbyte.png",
+    title: "Takbyte",
+    alt: "Takrenovering med byte av råspont och takstolar",
     span: 1,
   },
   {
-    src: "/images/projekt/projekt-3.jpg",
+    src: "/images/projekt/Renovering.png",
+    title: "Renovering",
+    alt: "Inomhusrenovering av korridor",
+    span: 1,
+  },
+  {
+    src: "/images/projekt/altanrullstols anpassning rätt.jpg",
+    title: "Altanbygge",
+    alt: "Altan och rullstolsanpassning vid rött hus",
+    span: 1,
+  },
+  {
+    src: "/images/projekt/Grundarbete villa.jpg",
+    title: "Grundarbete villa",
+    alt: "Grundläggning och markarbete med grävmaskin",
+    span: 1,
+  },
+  {
+    src: "/images/projekt/image22.jpeg",
     title: "Köksrenovering",
-    alt: "Köksrenovering med ljust nordiskt utförande",
-    span: 1,
-  },
-  {
-    src: "/images/projekt/projekt-4.jpg",
-    title: "Husutbyggnad",
-    alt: "Husutbyggnad med träfasad",
-    span: 1,
-  },
-  {
-    src: "/images/projekt/projekt-5.jpg",
-    title: "Takarbete",
-    alt: "Takrenovering och nyläggning",
-    span: 1,
-  },
-  {
-    src: "/images/projekt/projekt-6.jpg",
-    title: "Inomhusrenovering",
-    alt: "Inomhusrenovering med nordisk stil",
+    alt: "Nytt kök med ekfaner och ljusa bänkskivor",
     span: 1,
   },
 ];

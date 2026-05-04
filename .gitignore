@@ -42,3 +42,9 @@ next-env.d.ts
 
 # codex
 .codex
+
+# windows wsl artifacts
+*:Zone.Identifier
+
+# stray source assets folder (not used in build)
+/Public/

@@ -1,34 +1,10 @@
 "use client";
 
-import Image from "next/image";
-import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export function ParallaxSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const bgRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    const bg = bgRef.current;
-    if (!section || !bg) return;
-
-    const onScroll = () => {
-      const rect = section.getBoundingClientRect();
-      const viewportCenter = window.innerHeight / 2;
-      const sectionCenter = rect.top + rect.height / 2;
-      const relativePos = (sectionCenter - viewportCenter) / window.innerHeight;
-      bg.style.transform = `translateY(${relativePos * 120}px)`;
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
       className="dano-parallax"
       style={{
         position: "relative",
@@ -37,39 +13,24 @@ export function ParallaxSection() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        backgroundColor: "#0c0a09",
       }}
     >
-      {/* Parallax image */}
+      {/* Fixed parallax background — two white-filled logos flanking the text */}
       <div
-        ref={bgRef}
-        style={{
-          position: "absolute",
-          top: "-150px",
-          left: 0,
-          right: 0,
-          bottom: "-150px",
-          willChange: "transform",
-        }}
-      >
-        <div style={{ position: "relative", width: "100%", height: "100%" }}>
-          <Image
-            src="/images/parallax-bygge.jpg"
-            alt="Snickare arbetar med trä — nordiskt hantverk"
-            fill
-            sizes="100vw"
-            style={{ objectFit: "cover", objectPosition: "center" }}
-            quality={80}
-          />
-        </div>
-      </div>
-
-      {/* Overlay */}
-      <div
+        aria-hidden="true"
         style={{
           position: "absolute",
           inset: 0,
-          backgroundColor: "rgba(0,0,0,0.55)",
-          zIndex: 1,
+          zIndex: 0,
+          backgroundImage:
+            "url('/images/dano-bygg.transparant.png'), url('/images/dano-bygg.transparant.png')",
+          backgroundAttachment: "fixed, fixed",
+          backgroundPosition: "left 4vw center, right 4vw center",
+          backgroundRepeat: "no-repeat, no-repeat",
+          backgroundSize: "min(360px, 28vw) auto, min(360px, 28vw) auto",
+          filter: "brightness(0) invert(1)",
+          opacity: 0.95,
         }}
       />
 
@@ -107,10 +68,11 @@ export function ParallaxSection() {
             fontFamily: "var(--font-space-grotesk), sans-serif",
             fontSize: "clamp(2rem, 5vw, 3.5rem)",
             fontWeight: 700,
-            color: "white",
+            color: "#ffffff",
             lineHeight: 1.1,
             letterSpacing: "-0.02em",
             marginBottom: "1.25rem",
+            textShadow: "0 2px 24px rgba(0,0,0,0.6)",
           }}
         >
           Hållbart byggande börjar med rätt partner
@@ -120,10 +82,11 @@ export function ParallaxSection() {
           style={{
             fontSize: "1.0625rem",
             fontFamily: "var(--font-inter), sans-serif",
-            color: "#d6d3d1",
+            color: "#e7e5e4",
             lineHeight: 1.65,
             maxWidth: "540px",
             margin: "0 auto",
+            textShadow: "0 2px 16px rgba(0,0,0,0.6)",
           }}
         >
           Vi levererar kostnadseffektiva lösningar med kvalitet i centrum. Från det första samtalet till sista spiken — vi är med dig hela vägen.

@@ -29,10 +29,11 @@ export function Footer() {
       >
         {/* Main row */}
         <div
-          className="dano-footer-grid sm:grid-cols-2"
+          className="dano-footer-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr",
+            gridTemplateColumns: "auto auto",
+            justifyContent: "space-between",
             gap: "2.5rem",
             marginBottom: "3rem",
           }}
@@ -40,7 +41,7 @@ export function Footer() {
           {/* Left */}
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
             <Image
-              src="/images/dano-bygg-transparant.png"
+              src="/images/dano-bygg.transparant.png"
               alt="DaNo Bygg logotyp"
               width={110}
               height={42}
@@ -174,7 +175,20 @@ export function Footer() {
             }}
           >
             Hemsida av{" "}
-            <span style={{ color: "var(--dano-accent)" }}>Axona Digital</span>
+            <a
+              href="https://www.axonadigital.se/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "var(--dano-accent)",
+                textDecoration: "none",
+                transition: "opacity 0.2s",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.7"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
+            >
+              Axona Digital
+            </a>
           </p>
         </div>
       </div>

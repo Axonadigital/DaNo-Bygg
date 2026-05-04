@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { motion, type Easing } from "framer-motion";
+import heroJamtland from "@/public/images/hero-jamtland.jpg";
 
 function scrollTo(href: string) {
   const el = document.querySelector(href);
@@ -43,7 +44,7 @@ export function Hero() {
     >
       {/* Background image */}
       <Image
-        src="/images/hero-jamtland.jpg"
+        src={heroJamtland}
         alt="Jämtland landskap med Storsjön och fjäll"
         fill
         priority

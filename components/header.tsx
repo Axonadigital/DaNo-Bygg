@@ -64,7 +64,7 @@ export function Header() {
             maxWidth: "1280px",
             margin: "0 auto",
             padding: "0 1.25rem",
-            height: "68px",
+            height: "84px",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -78,14 +78,14 @@ export function Header() {
           >
             <Image
               className="dano-logo"
-              src="/images/dano-bygg-transparant.png"
+              src="/images/dano-bygg.transparant.png"
               alt="DaNo Bygg logotyp"
-              width={78}
-              height={78}
+              width={102}
+              height={102}
               style={{
                 objectFit: "contain",
-                height: "78px",
-                width: "78px",
+                height: "102px",
+                width: "102px",
                 filter: scrolled ? "none" : "brightness(0) invert(1)",
                 transition: "filter 0.3s ease",
               }}
